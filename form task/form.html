@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/form.css">
+</head>
+<div class="container">
+  <div class="con">
+  <img src="D:\javascript\form task\image\image.jpg.png">
+
+ </div>
+ <div class="con2">
+<body><h1>Create an account</h1>
+    <form>
+      <label>First Name</label><br>
+      <input type="fname" placeholder="First Name"id="name">
+      <br><br>
+      <label>Last Name</label><br>
+      <input type="fname" placeholder="Last Name"id="name">
+      <br><br>
+      <label>Age</label><br>
+      <input type="age" placeholder="18-100"id="age">
+      <br><br>
+      <label>Mobile Number</label><br>
+      <input type="mobile" placeholder="Mobile Number"id="mobile">
+      <br><br>
+      <label>Email</label><br>
+      <input type="email"placeholder="Email" id="mail">
+      <br><br>
+      <label>Description</label><br>
+      <textarea></textarea><br>
+      <label>Password</label><br>
+      <input type="password"placeholder="Password" id="password">
+      <br><br>
+      <label>Confirm Password</label><br>
+      <input type="cpassword"placeholder=" Confirm Password" id="cpassword">
+      <br><br>
+      <input type="button"value="Reset" id="clear">
+    
+      <input  class="A"type="button" value="submit" id="register" >
+    
+    </form>
+    </div></div>
+      
+          
+      
+          <script>
+            
+             const name= document.getElementById("name").value
+             const age=document.getElementById("age").value
+             const mobile=document.getElementById("mobile").value
+             const password=document.getElementById("password").value
+             const cpassword=document.getElementById("cpassword").value
+             const submit=document.getElementById("register")
+             submit.addEventListener("click",valudation)
+             function valudation(){
+              if(name.length>6){
+                alert("enter the more then 6 character")
+              }
+              else if(password == cpassword){
+                alert(" password not match")
+              }
+              else{
+                alert("register is sucessful")
+              }
+  
+           }
+               
+      </script>
+      
+  </body>
+  </html>
+    
