@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/weather.css">
+</head>
+<body>
+    <div class="head"><p><marquee>WEATHER  &nbsp &nbsp  REPORT</marquee></p></div>
+    <main class="container">
+    <div id="inp"> 
+        
+        <input type="text" placeholder="Enter city name.." id="input"style= "text-align:center;" > <br><br>
+        <input type="button" value="Search" id="btn"> 
+     </div> 
+     
+    <div id="result"> 
+        <div id="back">
+        <img src="" id="image"/>
+        <div id="temp"></div> <br><br><br>
+        <div id="city"></div> <br><br><br>
+        <div id="flex">
+        <div id="info"></div> <br>
+        <div id="wind"></div> 
+</div>
+</div>
+<script>
+     const a=document.querySelector("img")
+    const a1=document.querySelector("#input")
+    const a2=document.querySelector("#btn")
+    const a3=document.querySelector("#city")
+    const a4=document.querySelector("#temp")
+    const a5=document.querySelector("#info")
+    const a6=document.querySelector("#wind")
+    const a7=document.getElementById("image")
+    function convert(value){
+        return (value-273)
+
+
+    }
+    a2.addEventListener("click",()=>{
+        let apik="4280489e71041bcd5b205cdbeab06111"
+        fetch('https://api.openweathermap.org/data/2.5/weather?q='+a1.value+'&appid='+apik)
+  .then(response => response.json())
+  .then(data => {
+    a7.src=" http://openweathermap.org/img/wn/"+data['weather']['0']['icon']+"@2x.png"
+        data['weather']['0']['icon']
+    var city =data['name']
+    a3.innerHTML =`weather of ${city}`
+    var temperatre =data['main']['temp']
+    a4.innerHTML =`temperature:${Math.round(convert(temperatre))}°c`
+    var information =data['weather']['0']['description']
+    a5.innerHTML =`sky condition :${information}`
+    var windspeed =data['wind']['speed']
+    a6.innerHTML =`wind speed: ${windspeed}km/h`
+
+  })
+
+    })
+
+
+</script>
+</body>
+</html>
+</body>
+</html>
